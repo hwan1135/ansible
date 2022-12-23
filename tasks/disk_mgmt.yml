@@ -1,0 +1,19 @@
+##########
+- hosts: localhost
+  become: true
+  
+# Start task
+  tasks:
+    - name: Get volume group
+    - name: Get logical volume list
+    - name: Get total free space
+    - name: Display user instruction
+      debug: msg=""
+    # do not run if there are no --extra-vars
+    # Task if there is extra-vars
+      block:
+      - name: Create new disk space
+
+      - name: Expand existing space
+
+      when: lvm is not empty
