@@ -5,15 +5,27 @@
 # Start task
   tasks:
     - name: Get volume group
+      shell: ""
+      register: vg_info
+
     - name: Get logical volume list
+      shell: ""
+      register: lv_info
+
     - name: Get total free space
+      shell: ""
+      register: free_space
+
     - name: Display user instruction
-      debug: msg=""
+      debug: msg="{Here are the information. \nVolume group name: { vg_info.stdout }
+              \nList of logical volume \n{ lv_info.stdout }\nFree space available:{ free_space.stdout}}"
     # do not run if there are no --extra-vars
     # Task if there is extra-vars
       block:
       - name: Create new disk space
+        lvol:
 
       - name: Expand existing space
-
+        lvol:
+        
       when: lvm is not empty
